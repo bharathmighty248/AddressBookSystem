@@ -23,11 +23,15 @@ namespace AddressBookSystem
                     bookName = Console.ReadLine();
                     addressBook.AddAddressBook(bookName);
                     break;
+                default:
+                    Console.WriteLine("Invalid Input, Proceeding with default AddressBook");
+                    addressBook.AddAddressBook(bookName);
+                    break;
             }
             do
             {
                 Console.WriteLine($"Working On {bookName} AddressBook\n");
-                Console.WriteLine("Choose An Option \n1.Add New Contact \n2.Edit Existing Contact \n3.Delete A Contact \n4.View A Contact \n5.View All Contacts \n6.New AddressBook \n7.Search AddressBook \n8.View Persons by City/State \n9.Count By City/State \n10.Sort The Entries \n0.Exit Application\n");
+                Console.WriteLine("Choose An Option \n1.Add New Contact \n2.Edit Existing Contact \n3.Delete A Contact \n4.View A Contact \n5.View All Contacts \n6.New AddressBook \n7.Search AddressBook \n8.View Persons by City/State \n9.Count By City/State \n10.Sort The Entries \n11.ReadOrWrite Using File I/O \n0.Exit Application\n");
                 choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -146,6 +150,11 @@ namespace AddressBookSystem
                                 Console.WriteLine("Invalid Choice");
                                 break;
                         }
+                        break;
+                    case 11:
+                        FileIOOperations fileIO = new FileIOOperations();
+                        fileIO.WriteToFile(addressBook.addressBookDictionary);
+                        fileIO.ReadFromFile();
                         break;
                     case 0:
                         Console.WriteLine("Thank You For Using Address Book System..");
