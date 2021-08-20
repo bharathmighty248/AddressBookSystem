@@ -21,6 +21,7 @@ namespace AddressBookSystem
             addressBook.Add(contact.FirstName, contact);
             Console.WriteLine("\nContact Added Successfully.. \n");
         }
+
         public void ViewContact()
         {
             foreach (KeyValuePair<string, Contact> item in addressBook)
@@ -35,6 +36,7 @@ namespace AddressBookSystem
                 Console.WriteLine("Phone Number : " + item.Value.PhoneNumber + "\n");
             }
         }
+
         public void ViewContact(string name)
         {
             foreach (KeyValuePair<string, Contact> item in addressBook)
